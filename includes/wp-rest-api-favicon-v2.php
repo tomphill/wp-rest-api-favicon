@@ -55,7 +55,8 @@ if ( ! class_exists( 'WP_REST_API_favicon' ) ) :
       register_rest_route( self::get_api_namespace(), '/favicon', array(
           array(
             'methods'  => WP_REST_Server::READABLE,
-            'callback' => array( $this, 'get_favicon' )
+            'callback' => array( $this, 'get_favicon' ),
+            'permission_callback' => function(){return true; },
           )
         )
       );
